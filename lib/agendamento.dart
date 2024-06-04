@@ -1,16 +1,11 @@
+import 'package:agendamento/controller/calendario_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  CalendarFormat _calendarFormat = CalendarFormat.month;
-  DateTime _focusedDay = DateTime.now();
-  DateTime? _selectedDay;
-
+class AgendamentoPage extends GetView<CalendarController> {
+  const AgendamentoPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,41 +29,97 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TableCalendar(
-              firstDay: DateTime.utc(2023, 1, 1),
-              lastDay: DateTime.utc(2030, 12, 31),
-              focusedDay: _focusedDay,
-              calendarFormat: _calendarFormat,
-              locale: 'pt_BR', // Definir o local para português do Brasil
-
-              selectedDayPredicate: (day) {
-                return isSameDay(_selectedDay, day);
-              },
-              onDaySelected: (selectedDay, focusedDay) {
-                setState(() {
-                  _selectedDay = selectedDay;
-                  _focusedDay = focusedDay;
-                });
-                print('Selected: $_selectedDay');
-              },
-              onFormatChanged: (format) {
-                if (_calendarFormat != format) {
-                  setState(() {
-                    _calendarFormat = format;
-                  });
-                }
-              },
-              onPageChanged: (focusedDay) {
-                _focusedDay = focusedDay;
-              },
-            ),
-            SizedBox(height: 20),
-          ],
-        ),
+        child: _buildCalendar(),
       ),
+    );
+  }
+
+  Widget _buildCalendar() {
+    return GetBuilder<CalendarController>(
+        id: 'calendario',
+        builder: (context) {
+          return Column(
+            children: [
+              Container(
+                child: TableCalendar(
+                  firstDay: controller.primeiroDia,
+                  lastDay: controller.ultimoDia,
+                  focusedDay: controller.diaAtual,
+                  selectedDayPredicate: (day) {
+                    return isSameDay(day, controller.diaAtual);
+                  },
+                  onDaySelected: (dayInicio, dayFim) async {
+                    controller.getProgramacaoDia(dayInicio);
+                  },
+                  locale: controller.locale,
+                  calendarFormat: controller.calendarFormat,
+                  onFormatChanged: (day) => controller.onFormatChanged(day),
+                  headerStyle: HeaderStyle(
+                      titleCentered: true,
+                      formatButtonVisible: false,
+                      titleTextFormatter: (day, locale) =>
+                          DateFormat('MMMM yyyy', locale)
+                              .format(day)
+                              .capitalize!),
+                ),
+              ),
+              SizedBox(height: 10),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: _buildAgenda(controller.diaAtual),
+              )
+            ],
+          );
+        });
+  }
+
+  Widget _buildAgenda(DateTime data) {
+    return GetBuilder<CalendarController>(
+      id: 'agenda',
+      builder: (context) {
+        return controller.agenda.isEmpty
+            ? Container(
+                padding: const EdgeInsets.all(10),
+                child: Column(children: [
+                  Text('Oba tudo livre'),
+                ]),
+              )
+            : Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 50,
+                      width: 50,
+                      child: CircleAvatar(
+                        child: Text(data.day.toString()),
+                      ),
+                    ),
+                    SizedBox(
+                        height:
+                            10), // Adiciona um espaço entre o CircleAvatar e o ListView
+                    // Envolva o ListView em um Expanded ou forneça uma altura fixa
+                    Container(
+                      height: 200, // Define uma altura fixa para o ListView
+                      child: ListView.builder(
+                        itemCount: controller.agenda.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Card(
+                            child: ListTile(
+                              title: Text(
+                                controller.agenda[index],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              );
+      },
     );
   }
 
