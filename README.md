@@ -10,6 +10,10 @@ Este aplicativo permite aos usuários gerenciar eventos da agenda, incluindo nom
 - Adição, edição e exclusão de eventos.
 - Persistência de dados usando MySQL.
 
+## Design
+
+O design do aplicativo foi criado no Figma e pode ser visualizado [aqui](https://www.figma.com/design/rsjCcn2a80TWk8PKR11ael/Agendar-Hor%C3%A1rio?node-id=0-1&t=CkiKSA1xEVoU3Uf2-1).
+
 ## Tecnologias Utilizadas
 
 - Flutter: SDK para desenvolvimento de aplicativos multiplataforma.
@@ -22,5 +26,4 @@ Este aplicativo permite aos usuários gerenciar eventos da agenda, incluindo nom
 
 - Flutter SDK: [Instalação do Flutter](https://flutter.dev/docs/get-started/install)
 - MySQL Server: [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
-
 
