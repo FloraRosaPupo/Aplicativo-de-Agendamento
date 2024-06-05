@@ -1,16 +1,32 @@
-# agendamento
+# Agenda App
 
-A new Flutter project.
+Um aplicativo simples de agenda usando Flutter e MySQL.
 
-## Getting Started
+Este aplicativo permite aos usuários gerenciar eventos da agenda, incluindo nome, descrição e horário, armazenados em um banco de dados MySQL.
 
-This project is a starting point for a Flutter application.
+## Recursos
 
-A few resources to get you started if this is your first Flutter project:
+- Visualização de eventos diários em um calendário.
+- Adição, edição e exclusão de eventos.
+- Persistência de dados usando MySQL.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Tecnologias Utilizadas
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter: SDK para desenvolvimento de aplicativos multiplataforma.
+- GetX: State management simples e poderoso.
+- MySQL: Banco de dados relacional para armazenamento dos eventos.
+
+## Configuração do Ambiente
+
+### Pré-requisitos
+
+- Flutter SDK: [Instalação do Flutter](https://flutter.dev/docs/get-started/install)
+- MySQL Server: [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
+
+### Configuração do Projeto
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/seu-usuario/agenda_app.git
+   cd agenda_app
