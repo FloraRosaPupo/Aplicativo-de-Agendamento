@@ -23,10 +23,4 @@ Este aplicativo permite aos usuários gerenciar eventos da agenda, incluindo nom
 - Flutter SDK: [Instalação do Flutter](https://flutter.dev/docs/get-started/install)
 - MySQL Server: [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
 
-### Configuração do Projeto
 
-1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/seu-usuario/agenda_app.git
-   cd agenda_app
