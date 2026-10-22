@@ -1,29 +1,28 @@
-# Agenda App
+# Agenda
 
-Um aplicativo simples de agenda usando Flutter e MySQL.
+Visualização de uma agenda diária em calendário.
 
-Este aplicativo permite aos usuários gerenciar eventos da agenda, incluindo nome, descrição e horário, armazenados em um banco de dados MySQL.
+## Stack e organização
+Flutter/Dart, GetX e table_calendar. O controlador usa eventos de demonstração nos dias 27 e 28. Esta versão não implementa persistência MySQL nem um CRUD completo de eventos.
 
-## Recursos
+## Executar
+Use a versão de Flutter registrada em `.github/workflows/ci.yml`.
+```sh
+git clone https://github.com/FloraRosaPupo/Aplicativo-de-Agendamento.git
+cd Aplicativo-de-Agendamento
+flutter pub get
+flutter run
+```
 
-- Visualização de eventos diários em um calendário.
-- Adição, edição e exclusão de eventos.
-- Persistência de dados usando MySQL.
+## Verificações
+```sh
+flutter analyze --no-fatal-infos --no-fatal-warnings
+flutter test
+```
+A CI verifica erros de análise e os testes. Avisos e sugestões continuam visíveis no relatório do analisador. Testes locais não substituem a validação no dispositivo e dos serviços externos.
 
-## Design
+## Contribuir
+Abra uma branch por alteração, descreva o comportamento esperado e inclua testes para regras ou regressões. Mantenha credenciais e arquivos gerados fora do Git.
 
-O design do aplicativo foi criado no Figma e pode ser visualizado [aqui](https://www.figma.com/design/rsjCcn2a80TWk8PKR11ael/Agendar-Hor%C3%A1rio?node-id=0-1&t=CkiKSA1xEVoU3Uf2-1).
-
-## Tecnologias Utilizadas
-
-- Flutter: SDK para desenvolvimento de aplicativos multiplataforma.
-- GetX: State management simples e poderoso.
-- MySQL: Banco de dados relacional para armazenamento dos eventos.
-
-## Configuração do Ambiente
-
-### Pré-requisitos
-
-- Flutter SDK: [Instalação do Flutter](https://flutter.dev/docs/get-started/install)
-- MySQL Server: [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
-
+## Licença
+Não há licença de distribuição definida neste repositório.
