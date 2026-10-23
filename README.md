@@ -3,7 +3,9 @@
 Visualização de uma agenda diária em calendário.
 
 ## Stack e organização
-Flutter/Dart, GetX e table_calendar. O controlador usa eventos de demonstração nos dias 27 e 28. Esta versão não implementa persistência MySQL nem um CRUD completo de eventos.
+Flutter/Dart, GetX, intl e table_calendar.
+
+Aplicação pequena com uma funcionalidade. Mantida separação entre tela e calendário/controller; não foi criada árvore de pastas sem conteúdo. Dados de dias fixos são explicitamente demonstração.
 
 ## Executar
 Use a versão de Flutter registrada em `.github/workflows/ci.yml`.
@@ -26,3 +28,17 @@ Abra uma branch por alteração, descreva o comportamento esperado e inclua test
 
 ## Licença
 Não há licença de distribuição definida neste repositório.
+
+
+## Funcionalidades
+
+- Seleção de data.
+- lista de horários demonstrativos.
+- atualização de agenda na tela.
+
+
+## Organização e manutenção
+
+Aplicação pequena com uma funcionalidade. Mantida separação entre tela e calendário/controller; não foi criada árvore de pastas sem conteúdo. Dados de dias fixos são explicitamente demonstração.
+
+Veja [a revisão de desenvolvimento](docs/REVISAO.md) para decisões, testes e limites, e [o guia de contribuição](CONTRIBUTING.md) para o fluxo de manutenção.
