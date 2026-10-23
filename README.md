@@ -1,29 +1,44 @@
-# Agenda App
+# Agenda
 
-Um aplicativo simples de agenda usando Flutter e MySQL.
+Visualização de uma agenda diária em calendário.
 
-Este aplicativo permite aos usuários gerenciar eventos da agenda, incluindo nome, descrição e horário, armazenados em um banco de dados MySQL.
+## Stack e organização
+Flutter/Dart, GetX, intl e table_calendar.
 
-## Recursos
+Aplicação pequena com uma funcionalidade. Mantida separação entre tela e calendário/controller; não foi criada árvore de pastas sem conteúdo. Dados de dias fixos são explicitamente demonstração.
 
-- Visualização de eventos diários em um calendário.
-- Adição, edição e exclusão de eventos.
-- Persistência de dados usando MySQL.
+## Executar
+Use a versão de Flutter registrada em `.github/workflows/ci.yml`.
+```sh
+git clone https://github.com/FloraRosaPupo/Aplicativo-de-Agendamento.git
+cd Aplicativo-de-Agendamento
+flutter pub get
+flutter run
+```
 
-## Design
+## Verificações
+```sh
+flutter analyze --no-fatal-infos --no-fatal-warnings
+flutter test
+```
+A CI verifica erros de análise e os testes. Avisos e sugestões continuam visíveis no relatório do analisador. Testes locais não substituem a validação no dispositivo e dos serviços externos.
 
-O design do aplicativo foi criado no Figma e pode ser visualizado [aqui](https://www.figma.com/design/rsjCcn2a80TWk8PKR11ael/Agendar-Hor%C3%A1rio?node-id=0-1&t=CkiKSA1xEVoU3Uf2-1).
+## Contribuir
+Abra uma branch por alteração, descreva o comportamento esperado e inclua testes para regras ou regressões. Mantenha credenciais e arquivos gerados fora do Git.
 
-## Tecnologias Utilizadas
+## Licença
+Não há licença de distribuição definida neste repositório.
 
-- Flutter: SDK para desenvolvimento de aplicativos multiplataforma.
-- GetX: State management simples e poderoso.
-- MySQL: Banco de dados relacional para armazenamento dos eventos.
 
-## Configuração do Ambiente
+## Funcionalidades
 
-### Pré-requisitos
+- Seleção de data.
+- lista de horários demonstrativos.
+- atualização de agenda na tela.
 
-- Flutter SDK: [Instalação do Flutter](https://flutter.dev/docs/get-started/install)
-- MySQL Server: [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
 
+## Organização e manutenção
+
+Aplicação pequena com uma funcionalidade. Mantida separação entre tela e calendário/controller; não foi criada árvore de pastas sem conteúdo. Dados de dias fixos são explicitamente demonstração.
+
+Veja [a revisão de desenvolvimento](docs/REVISAO.md) para decisões, testes e limites, e [o guia de contribuição](CONTRIBUTING.md) para o fluxo de manutenção.

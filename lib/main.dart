@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple, // Cor principal em tom de roxo
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
-          headline6: TextStyle(fontSize: 20, color: Colors.purple),
-          bodyText2: TextStyle(fontSize: 15, color: Colors.black87),
+          titleLarge: TextStyle(fontSize: 20, color: Colors.purple),
+          bodyMedium: TextStyle(fontSize: 15, color: Colors.black87),
         ),
       ),
       initialBinding: BindingsBuilder(() {
